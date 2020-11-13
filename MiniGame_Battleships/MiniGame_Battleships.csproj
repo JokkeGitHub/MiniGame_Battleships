@@ -43,8 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="Competitors\Enemy.cs" />
+    <Compile Include="Competitors\Player.cs" />
+    <Compile Include="Grid\Grid.cs" />
+    <Compile Include="Grid\GridManager.cs" />
+    <Compile Include="GUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ship\Ship.cs" />
+    <Compile Include="Ship\ShipManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
