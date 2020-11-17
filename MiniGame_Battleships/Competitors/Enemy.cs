@@ -18,14 +18,7 @@ namespace MiniGame_Battleships
         public static List<Ship> enemyShips = new List<Ship>();
         public static List<Ship> enemyPlacedShips = new List<Ship>();
 
-        public static string storedTarget = "";
-        public static int storedVertical = 0;
-        public static int storedHorizontal = 0;
-
-        public static bool verticalIncreaseCheck = false;
-        public static bool verticalDecreaseCheck = false;
-        public static bool horizontalIncreaseCheck = false;
-        public static bool horizontalDecreaseCheck = false;
+        static Random random = new Random();
 
         #region Enemy Ship Placement
         public static void EnemySetup()
@@ -185,78 +178,10 @@ namespace MiniGame_Battleships
 
         public static void EnemyTurn()
         {
-            Random random = new Random();
-
             int verticalRandom = random.Next(0, 10);
-            int horizontalRandom = random.Next(0, 10);
+            int horizontalRandom = random.Next(0, 10);            
 
-            int tempTargetVertical = 0;
-            int tempTargetHorizontal = 0;
-
-            if (storedTarget == "")
-            {
-                tempTargetVertical = verticalRandom;
-                tempTargetHorizontal = horizontalRandom;
-            }
-            else
-            {
-                // TEST THIS !!!!!
-                // !!!!!!!!!!!!!!!!!!!!!
-                if (storedTarget == Player.radarGrid[storedVertical, storedHorizontal].Position)
-                {
-                    if (storedVertical < 9 && verticalIncreaseCheck == false)
-                    {
-                        if (Player.territoryGrid[storedVertical + 1, storedHorizontal].IsHit == false)
-                        {
-                            tempTargetVertical = storedVertical + 1;
-                            tempTargetHorizontal = storedHorizontal;
-
-                            verticalIncreaseCheck = true;
-                        }
-                    }
-                    else if (storedVertical > 0 && verticalDecreaseCheck == false)
-                    {
-                        if (Player.territoryGrid[storedVertical - 1, storedHorizontal].IsHit == false)
-                        {
-                            tempTargetVertical = storedVertical - 1;
-                            tempTargetHorizontal = storedHorizontal;
-
-                            verticalDecreaseCheck = true;
-                        }
-                    }
-                    else if (storedHorizontal < 9 && horizontalIncreaseCheck == false)
-                    {
-                        if (Player.territoryGrid[storedVertical, storedHorizontal + 1].IsHit == false)
-                        {
-                            tempTargetVertical = storedVertical;
-                            tempTargetHorizontal = storedHorizontal + 1;
-
-                            horizontalIncreaseCheck = true;
-                        }
-                    }
-                    else if (storedHorizontal > 0 && horizontalDecreaseCheck == false)
-                    {
-                        if (Player.territoryGrid[storedVertical, storedHorizontal - 1].IsHit == false)
-                        {
-                            tempTargetVertical = storedVertical;
-                            tempTargetHorizontal = storedHorizontal - 1;
-
-                            horizontalDecreaseCheck = true;
-                        }
-                    }
-                    else
-                    {
-                        storedTarget = "";
-                        storedVertical = 0;
-                        storedHorizontal = 0;
-
-                        tempTargetVertical = verticalRandom;
-                        tempTargetHorizontal = horizontalRandom;
-                    }
-                }
-            }
-
-            EnemyTarget(tempTargetVertical, tempTargetHorizontal);
+            EnemyTarget(verticalRandom, horizontalRandom);
         }
 
         public static void EnemyTarget(int tempTargetVertical, int tempTargetHorizontal)
@@ -275,9 +200,6 @@ namespace MiniGame_Battleships
 
                             if (Player.territoryGrid[i, j].IsOccupied == true)
                             {
-                                storedTarget = selectedTarget;
-                                storedVertical = i;
-                                storedHorizontal = j;
 
                                 for (int k = 0; k < Player.playerPlacedShips.Count; k++)
                                 {
@@ -286,26 +208,30 @@ namespace MiniGame_Battleships
                                         Player.playerPlacedShips[k].HP--;
                                         if (Player.playerPlacedShips[k].HP == 0)
                                         {
-                                            storedTarget = "";
-                                            storedVertical = 0;
-                                            storedHorizontal = 0;
-
-                                            verticalIncreaseCheck = false;
-                                            verticalDecreaseCheck = false;
-                                            horizontalIncreaseCheck = false;
-                                            horizontalDecreaseCheck = false;
+                                            i = 11;
+                                            j = 11;
 
                                             int tempDestroy = EnemyDestroyShip(Player.playerPlacedShips.IndexOf(Player.playerPlacedShips[k]));
+
+                                            k = 11;
                                         }
                                         else
                                         {
+                                            i = 11;
+                                            j = 11;
+
                                             GUI.EnemyHitAShip();
+
+                                            k = 11;
                                         }
                                     }
                                 }
                             }
                             else
                             {
+                                i = 11;
+                                j = 11;                                
+
                                 GUI.EnemyMissedShot();
                             }
                         }

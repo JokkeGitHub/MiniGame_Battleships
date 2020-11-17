@@ -220,17 +220,30 @@ namespace MiniGame_Battleships
                                         Enemy.enemyPlacedShips[k].HP--;
                                         if (Enemy.enemyPlacedShips[k].HP == 0)
                                         {
+                                            i = 11;
+                                            j = 11;
+                                            
                                             int tempDostroy = DestroyShip(Enemy.enemyPlacedShips.IndexOf(Enemy.enemyPlacedShips[k]));
+
+                                            k = 11;
                                         }
                                         else
                                         {
+                                            i = 11;
+                                            j = 11;
+
                                             GUI.YouHitAShip();
+
+                                            k = 11;
                                         }
                                     }
                                 }
                             }
                             else
                             {
+                                i = 11;
+                                j = 11;
+
                                 GUI.MissedShot();
                             }
                         }
