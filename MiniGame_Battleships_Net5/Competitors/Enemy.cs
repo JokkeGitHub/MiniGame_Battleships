@@ -21,8 +21,6 @@ namespace MiniGame_Battleships_Net5
         #region Enemy Ship Placement
         public static void EnemySetup()
         {
-            Random random = new Random();
-
             enemyShips.Add(Board.CreateHangarShip(shipManager));
             enemyShips.Add(Board.CreateBattleship(shipManager));
             enemyShips.Add(Board.CreateDestroyer(shipManager));
