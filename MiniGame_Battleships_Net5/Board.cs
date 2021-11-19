@@ -67,32 +67,32 @@ namespace MiniGame_Battleships_Net5
         #region Ship Types
         public static Ship CreateHangarShip(ShipManager shipManager)
         {
-            Ship hangarShip = shipManager.CreateShip("HS", 5, 5);
+            Ship hangarShip = shipManager.CreateShip("Hangar Ship", "HS", 5, 5);
 
             return hangarShip;
         }
 
         public static Ship CreateBattleship(ShipManager shipManager)
         {
-            Ship battleship = shipManager.CreateShip("BS", 4, 4);
+            Ship battleship = shipManager.CreateShip("Battleship", "BS", 4, 4);
 
             return battleship;
         }
         public static Ship CreateDestroyer(ShipManager shipManager)
         {
-            Ship destroyer = shipManager.CreateShip("DS", 3, 3);
+            Ship destroyer = shipManager.CreateShip("Destroyer", "DS", 3, 3);
 
             return destroyer;
         }
         public static Ship CreateSubmarine(ShipManager shipManager)
         {
-            Ship Submarine = shipManager.CreateShip("SM", 3, 3);
+            Ship Submarine = shipManager.CreateShip("Submarine", "SM", 3, 3);
 
             return Submarine;
         }
         public static Ship CreatePatrolBoat(ShipManager shipManager)
         {
-            Ship patrolBoat = shipManager.CreateShip("PB", 2, 2);
+            Ship patrolBoat = shipManager.CreateShip("Patrol Boat", "PB", 2, 2);
 
             return patrolBoat;
         }

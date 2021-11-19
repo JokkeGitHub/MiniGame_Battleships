@@ -8,9 +8,9 @@ namespace MiniGame_Battleships_Net5
 {
     class ShipManager
     {
-        public Ship CreateShip(string _shipType, int _size, int _hp)
+        public Ship CreateShip(string shipType, string abbreviation, int size, int hp)
         {
-            Ship newShip = new Ship(_shipType, _size, _hp);
+            Ship newShip = new Ship(shipType, abbreviation, size, hp);
 
             return newShip;
         }

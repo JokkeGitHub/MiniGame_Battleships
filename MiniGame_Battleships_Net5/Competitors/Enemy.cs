@@ -81,7 +81,7 @@ namespace MiniGame_Battleships_Net5
                         {
                             positionTemp = enemyGrid[i, j].Position;
 
-                            enemyGrid[i, j].Position = enemyShips[0].ShipType;
+                            enemyGrid[i, j].Position = enemyShips[0].Abbreviation;
                             enemyGrid[i, j].IsOccupied = true;
 
                             if (enemyShips[0].Vertical == true)
@@ -112,7 +112,7 @@ namespace MiniGame_Battleships_Net5
                                     {
                                         for (int k = 1; k < enemyShips[0].Size; k++)
                                         {
-                                            enemyGrid[i + k, j].Position = enemyShips[0].ShipType;
+                                            enemyGrid[i + k, j].Position = enemyShips[0].Abbreviation;
                                             enemyGrid[i + k, j].IsOccupied = true;
                                         }
                                         enemyPlacedShips.Add(enemyShips[0]);
@@ -155,7 +155,7 @@ namespace MiniGame_Battleships_Net5
                                     {
                                         for (int k = 1; k < enemyShips[0].Size; k++)
                                         {
-                                            enemyGrid[i, j + k].Position = enemyShips[0].ShipType;
+                                            enemyGrid[i, j + k].Position = enemyShips[0].Abbreviation;
                                             enemyGrid[i, j + k].IsOccupied = true;
                                         }
                                         enemyPlacedShips.Add(enemyShips[0]);
@@ -206,7 +206,7 @@ namespace MiniGame_Battleships_Net5
 
                                 for (int k = 0; k < Player.playerPlacedShips.Count; k++)
                                 {
-                                    if (Player.playerPlacedShips[k].ShipType == Player.territoryGrid[i, j].Position)
+                                    if (Player.playerPlacedShips[k].Abbreviation == Player.territoryGrid[i, j].Position)
                                     {
                                         Player.playerPlacedShips[k].HP--;
                                         if (Player.playerPlacedShips[k].HP == 0)
@@ -252,7 +252,7 @@ namespace MiniGame_Battleships_Net5
 
         public static int EnemyDestroyShip(int shipIndex)
         {
-            string destroyedShip = EnemyHaveDestroyedShipType(Player.playerPlacedShips[shipIndex].ShipType);
+            string destroyedShip = EnemyHaveDestroyedShipType(Player.playerPlacedShips[shipIndex].Abbreviation);
 
             Player.playerPlacedShips.RemoveAt(shipIndex);
 

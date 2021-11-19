@@ -11,7 +11,7 @@ namespace MiniGame_Battleships_Net5
         #region Ship Placement GUI
         public static void DisplayShipTypesMessage()
         {
-            Console.WriteLine("[HS] = Hangar Ship| Size = 5\n[BS] = Battleship | Size = 4\n[DS] = Destroyer  | Size = 3\n[SM] = Submarine  | Size = 3\n[PB] = Patrol Boat| Size = 2\n");
+            Console.WriteLine("Hangar Ship| Size = 5\nBattleship | Size = 4\nDestroyer  | Size = 3\nSubmarine  | Size = 3\nPatrol Boat| Size = 2\n");
         }
 
         public static void DisplayPlacementGrid()
@@ -175,7 +175,7 @@ namespace MiniGame_Battleships_Net5
         public static void DestroyedHangarShip()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemys Hangar Ship!");
+            Console.WriteLine("You have destroyed the enemy's Hangar Ship!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }
@@ -183,7 +183,7 @@ namespace MiniGame_Battleships_Net5
         public static void DestroyedBattleship()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemys Battleship!");
+            Console.WriteLine("You have destroyed the enemy's Battleship!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }
@@ -191,7 +191,7 @@ namespace MiniGame_Battleships_Net5
         public static void DestroyedDestroyer()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemys Destroyer!");
+            Console.WriteLine("You have destroyed the enemy's Destroyer!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }
@@ -199,7 +199,7 @@ namespace MiniGame_Battleships_Net5
         public static void DestroyedSubmarine()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemys Submarine!");
+            Console.WriteLine("You have destroyed the enemy's Submarine!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }
@@ -207,7 +207,7 @@ namespace MiniGame_Battleships_Net5
         public static void DestroyedPatrolBoat()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemys Patrol Boat!");
+            Console.WriteLine("You have destroyed the enemy's Patrol Boat!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }

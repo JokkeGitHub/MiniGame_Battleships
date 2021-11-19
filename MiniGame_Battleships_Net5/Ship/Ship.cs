@@ -8,72 +8,18 @@ namespace MiniGame_Battleships_Net5
 {
     class Ship
     {
-        private string _shipType;
-        private int _size;
-        private int _hp;
-        private bool _vertical;
+        public string ShipType { get; set; }
+        public string Abbreviation { get; set; }
+        public int Size { get; set; }
+        public int HP { get; set; }
+        public bool Vertical { get; set; }
 
-        public string ShipType
+        public Ship(string shipType, string abbreviation,int size, int hp)
         {
-            get
-            {
-                return this._shipType;
-            }
-            set
-            {
-                this._shipType = value;
-            }
+            ShipType = shipType;
+            Abbreviation = abbreviation;
+            Size = size;
+            HP = hp;
         }
-
-        public int Size
-        {
-            get
-            {
-                return this._size;
-            }
-            set
-            {
-                this._size = value;
-            }
-        }
-
-        public int HP
-        {
-            get
-            {
-                return this._hp;
-            }
-            set
-            {
-                this._hp = value;
-            }
-        }
-
-        public bool Vertical
-        {
-            get
-            {
-                return this._vertical;
-            }
-            set
-            {
-                this._vertical = value;
-            }
-        }
-
-        public Ship()
-        {
-
-        }
-
-        public Ship(string _shipType, int _size, int _hp)
-        {
-            ShipType = _shipType;
-            Size = _size;
-            HP = _hp;
-        }
-
-        // Methods here
-
     }
 }

@@ -8,9 +8,9 @@ namespace MiniGame_Battleships_Net5
 {
     class GridManager
     {
-        public Grid CreatePosition(string _position, bool _isOccupied, bool _isHit)
+        public Grid CreatePosition(string position, bool isOccupied, bool isHit)
         {
-            Grid newGrid = new Grid(_position, _isOccupied, _isHit);
+            Grid newGrid = new Grid(position, isOccupied, isHit);
 
             return newGrid;
         }
