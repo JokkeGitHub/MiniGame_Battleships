@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniGame_Battleships", "MiniGame_Battleships\MiniGame_Battleships.csproj", "{6C7C96CD-4389-4E6B-97DC-990EEEDC8A7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniGame_Battleships_Net5", "MiniGame_Battleships_Net5\MiniGame_Battleships_Net5.csproj", "{EC5CF506-1B4D-49B4-B283-1E9B0E5EEA34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6C7C96CD-4389-4E6B-97DC-990EEEDC8A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C7C96CD-4389-4E6B-97DC-990EEEDC8A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C7C96CD-4389-4E6B-97DC-990EEEDC8A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C7C96CD-4389-4E6B-97DC-990EEEDC8A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5CF506-1B4D-49B4-B283-1E9B0E5EEA34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5CF506-1B4D-49B4-B283-1E9B0E5EEA34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5CF506-1B4D-49B4-B283-1E9B0E5EEA34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5CF506-1B4D-49B4-B283-1E9B0E5EEA34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
