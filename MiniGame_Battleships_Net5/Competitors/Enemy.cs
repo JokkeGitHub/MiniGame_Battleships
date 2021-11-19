@@ -245,41 +245,11 @@ namespace MiniGame_Battleships_Net5
 
         public static int EnemyDestroyShip(int shipIndex)
         {
-            string destroyedShip = EnemyHaveDestroyedShipType(Player.playerPlacedShips[shipIndex].Abbreviation);
+            GUI.EnemyDestroyedAShip(Player.playerPlacedShips[shipIndex].ShipType);
 
             Player.playerPlacedShips.RemoveAt(shipIndex);
 
             return 0;
-        }
-
-        public static string EnemyHaveDestroyedShipType(string shipType)
-        {
-            switch (shipType)
-            {
-                case "HS":
-                    GUI.EnemyDestroyedHangarShip();
-                    break;
-
-                case "BS":
-                    GUI.EnemyDestroyedBattleship();
-                    break;
-
-                case "DS":
-                    GUI.EnemyDestroyedDestroyer();
-                    break;
-
-                case "SM":
-                    GUI.EnemyDestroyedSubmarine();
-                    break;
-
-                case "PB":
-                    GUI.EnemyDestroyedPatrolBoat();
-                    break;
-
-                default:
-                    break;
-            }
-            return "";
         }
         #endregion
     }

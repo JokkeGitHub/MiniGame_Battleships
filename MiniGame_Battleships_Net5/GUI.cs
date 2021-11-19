@@ -172,42 +172,10 @@ namespace MiniGame_Battleships_Net5
             Console.ReadLine();
         }
 
-        public static void DestroyedHangarShip()
+        public static void YouDestroyedAShip(string shipType)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemy's Hangar Ship!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void DestroyedBattleship()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemy's Battleship!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void DestroyedDestroyer()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemy's Destroyer!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void DestroyedSubmarine()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemy's Submarine!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void DestroyedPatrolBoat()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("You have destroyed the enemy's Patrol Boat!");
+            Console.WriteLine($"You have destroyed the enemy's {shipType}!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }
@@ -230,42 +198,10 @@ namespace MiniGame_Battleships_Net5
             Console.ReadLine();
         }
 
-        public static void EnemyDestroyedHangarShip()
+        public static void EnemyDestroyedAShip(string shipType)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The enemy has destroyed your Hangar Ship!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void EnemyDestroyedBattleship()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The enemy has destroyed your Battleship!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void EnemyDestroyedDestroyer()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The enemy has destroyed your Destroyer!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void EnemyDestroyedSubmarine()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The enemy has destroyed your Submarine!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
-        }
-
-        public static void EnemyDestroyedPatrolBoat()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("The enemy has destroyed your Patrol Boat!");
+            Console.WriteLine($"The enemy has destroyed your {shipType}!");
             Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
         }
