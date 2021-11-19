@@ -13,11 +13,6 @@ namespace MiniGame_Battleships_Net5
         public static Grid[,] radarGrid = Board.CreateRadar(gridManager);
 
         public static ShipManager shipManager = new ShipManager();
-        public static Ship playerShip1 = Board.CreateHangarShip(shipManager);
-        public static Ship playerShip2 = Board.CreateBattleship(shipManager);
-        public static Ship playerShip3 = Board.CreateDestroyer(shipManager);
-        public static Ship playerShip4 = Board.CreateSubmarine(shipManager);
-        public static Ship playerShip5 = Board.CreatePatrolBoat(shipManager);
 
         public static List<Ship> playerShips = new List<Ship>();
         public static List<Ship> playerPlacedShips = new List<Ship>();
@@ -25,11 +20,11 @@ namespace MiniGame_Battleships_Net5
         #region Player Ship Placement
         public static void PlayerSetup()
         {
-            playerShips.Add(playerShip1);
-            playerShips.Add(playerShip2);
-            playerShips.Add(playerShip3);
-            playerShips.Add(playerShip4);
-            playerShips.Add(playerShip5);
+            playerShips.Add(Board.CreateHangarShip(shipManager));
+            playerShips.Add(Board.CreateBattleship(shipManager));
+            playerShips.Add(Board.CreateDestroyer(shipManager));
+            playerShips.Add(Board.CreateSubmarine(shipManager));
+            playerShips.Add(Board.CreatePatrolBoat(shipManager));
 
             PlayerShipPlacement();
 
