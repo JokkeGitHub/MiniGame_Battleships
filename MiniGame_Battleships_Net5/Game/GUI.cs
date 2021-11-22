@@ -40,7 +40,7 @@ namespace MiniGame_Battleships_Net5
 
 
 
-
+        /*
         #region Ship Placement GUI
         public static void DisplayShipTypesMessage()
         {
@@ -239,5 +239,6 @@ namespace MiniGame_Battleships_Net5
             Console.ReadLine();
         }
         #endregion
+        */
     }
 }
