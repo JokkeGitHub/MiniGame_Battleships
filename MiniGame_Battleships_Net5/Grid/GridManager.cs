@@ -12,9 +12,9 @@ namespace MiniGame_Battleships_Net5
         {
             Cell[,] cells = GetCells();
 
-            Grid grid = new Grid(cells);
+            Grid newGrid = new Grid(cells);
 
-            return grid;
+            return newGrid;
         }
 
         public Cell[,] GetCells()

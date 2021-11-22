@@ -10,9 +10,9 @@ namespace MiniGame_Battleships_Net5
     {
         public Cell CreatePosition(string position, bool isOccupied, bool isHit)
         {
-            Cell newGrid = new Cell(position, isOccupied, isHit);
+            Cell newCell = new Cell(position, isOccupied, isHit);
 
-            return newGrid;
+            return newCell;
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    class Enemy
+    public class Enemy
     {
         public List<Ship> Ships { get; set; }
         public List<Ship> PlacedShips { get; set; }

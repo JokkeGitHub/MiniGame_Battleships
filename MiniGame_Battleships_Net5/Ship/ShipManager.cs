@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    class ShipManager
+    public class ShipManager
     {
         private Ship CreateShip(string shipType, string abbreviation, int size, int hp)
         {

@@ -7,7 +7,7 @@ using MiniGame_Battleships_Net5;
 
 namespace MiniGame_Battleships_Net5
 {
-    class Board
+    public class Board
     {
         public Grid EnemyGrid { get; set; }
         public Grid PlayerGrid { get; set; }

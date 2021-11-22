@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    class Player
+    public class Player
     {
         public List<Ship> Ships { get; set; }
         public List<Ship> PlacedShips { get; set; }

@@ -54,8 +54,20 @@ namespace MiniGame_Battleships_Net5
 
         void NewGame()
         {
+            BoardManager boardManager = new BoardManager();
 
+            Board board = boardManager.CreateBoard();
+            
+            //Placement
+            //Determine who starts
 
+            // Loop
+            // Display GUI
+            // Enemy + Player Turns
+            // Check victory condition
+
+            // If victory condition
+            // Win/Lose Message
         }
 
         void Run()
