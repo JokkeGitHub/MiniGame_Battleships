@@ -70,6 +70,7 @@ namespace MiniGame_Battleships_Net5
             // Win/Lose Message
         }
 
+        /*
         void Run()
         {
             Player.PlayerSetup();
@@ -87,5 +88,6 @@ namespace MiniGame_Battleships_Net5
             // Lave en start game metode
             // Lav en random switch, der bestemmer om spiller eller computer starter
         }
+        */
     }
 }

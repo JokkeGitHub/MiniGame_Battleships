@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    public class Enemy
+    public class Enemy : Competitor
     {
-        public List<Ship> Ships { get; set; }
-        public List<Ship> PlacedShips { get; set; }
+        static Random random = new Random();
 
         public Enemy()
         {
@@ -23,6 +22,26 @@ namespace MiniGame_Battleships_Net5
             ships = shipManager.CreateAllShips(ships);
             return ships;
         }
+
+        public void ShipAutoPlacement()
+        {
+
+        }
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// ///////////////////////////// OLD CODE BELOW
+        /// </summary>
+        /// <param name="ships"></param>
+        /// <returns></returns>
+
+        /*
 
         public static CellManager cellManager = new CellManager();
         public static Cell[,] enemyGrid2 = Board.CreateEnemyTerritory(cellManager);
@@ -47,11 +66,7 @@ namespace MiniGame_Battleships_Net5
 
             void PlayerShipPlacement()
             {
-                do
-                {
-                    VerticalOrHorizontal();
-
-                } while (enemyShips.Count != 0);
+                
             }
 
             void VerticalOrHorizontal()
@@ -268,5 +283,6 @@ namespace MiniGame_Battleships_Net5
             return 0;
         }
         #endregion
+        */
     }
 }

@@ -12,8 +12,8 @@ namespace MiniGame_Battleships_Net5
         public Grid EnemyGrid { get; set; }
         public Grid PlayerGrid { get; set; }
         public Grid RadarGrid { get; set; }
-        public Enemy Enemy { get; set; }
-        public Player Player { get; set; }
+        public Competitor Enemy { get; set; }
+        public Competitor Player { get; set; }
 
         public Board(Grid enemyGrid, Grid playerGrid, Grid radarGrid, Enemy enemy, Player player)
         {

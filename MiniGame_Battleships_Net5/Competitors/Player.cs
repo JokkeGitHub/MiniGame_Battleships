@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    public class Player
+    public class Player : Competitor
     {
-        public List<Ship> Ships { get; set; }
-        public List<Ship> PlacedShips { get; set; }
-
         public Player()
         {
             Ships = GetShipList(Ships);
@@ -23,6 +20,23 @@ namespace MiniGame_Battleships_Net5
             return ships;
         }
 
+        public void ShipPlacement()
+        {
+
+        }
+
+
+
+
+
+        /// <summary>
+        /// ///////////////////////////////////////// OLD CODE BELOW
+        /// </summary>
+        /// <param name="ships"></param>
+        /// <returns></returns>
+
+
+        /*
         public static CellManager gridManager = new CellManager();
         public static Cell[,] territoryGrid = Board.CreateTerritory(gridManager);
         public static Cell[,] radarGrid = Board.CreateRadar(gridManager);
@@ -283,5 +297,6 @@ namespace MiniGame_Battleships_Net5
             return 0;
         }
         #endregion
+        */
     }
 }
