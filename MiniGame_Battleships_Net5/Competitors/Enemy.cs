@@ -1,4 +1,4 @@
-﻿using MiniGame_Battleships_Net5.Grid;
+﻿using MiniGame_Battleships_Net5;
 using System;
 using System.Collections.Generic;
 using System.Linq;

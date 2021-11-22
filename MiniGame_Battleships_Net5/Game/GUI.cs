@@ -8,6 +8,39 @@ namespace MiniGame_Battleships_Net5
 {
     class GUI
     {
+        void Clear()
+        {
+            Console.Clear();
+        }
+
+        public void GoodBye()
+        {
+            Clear();
+            Console.WriteLine("Goodbye!");
+        }
+
+        public void StartOrNot()
+        {
+            Clear();
+            Console.WriteLine("Start a new game?\nType yes or no.");
+        }
+
+        public void WrongInput()
+        {
+            Console.WriteLine("Wrong input detected. Please try again.");
+        }
+
+
+
+
+
+        /// <summary>
+        /// ///////////////////////////////////////// OLD CODE DOWN THERE
+        /// </summary>
+
+
+
+
         #region Ship Placement GUI
         public static void DisplayShipTypesMessage()
         {

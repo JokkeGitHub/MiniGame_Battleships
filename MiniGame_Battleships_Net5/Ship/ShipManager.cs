@@ -51,6 +51,7 @@ namespace MiniGame_Battleships_Net5
             return patrolBoat;
         }
         #endregion
+
         public List<Ship> CreateAllShips(List<Ship> ships)
         {
             ShipManager shipManager = new ShipManager();
