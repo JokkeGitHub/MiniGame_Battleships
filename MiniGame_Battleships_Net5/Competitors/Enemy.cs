@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniGame_Battleships_Net5.Grid;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,25 @@ namespace MiniGame_Battleships_Net5
 {
     class Enemy
     {
-        public static GridManager gridManager = new GridManager();
-        public static Grid[,] enemyGrid = Board.CreateEnemyTerritory(gridManager);
+        public List<Ship> Ships { get; set; }
+        public List<Ship> PlacedShips { get; set; }
 
-        public static ShipManager shipManager = new ShipManager();
+        public Enemy()
+        {
+            Ships = GetShipList(Ships);
+        }
+
+        private List<Ship> GetShipList(List<Ship> ships)
+        {
+            ShipManager shipManager = new ShipManager();
+            ships = shipManager.CreateAllShips(ships);
+            return ships;
+        }
+
+        public static CellManager cellManager = new CellManager();
+        public static Cell[,] enemyGrid2 = Board.CreateEnemyTerritory(cellManager);
+
+        //public static ShipManager shipManager = new ShipManager();
 
         public static List<Ship> enemyShips = new List<Ship>();
         public static List<Ship> enemyPlacedShips = new List<Ship>();

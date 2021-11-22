@@ -8,11 +8,26 @@ namespace MiniGame_Battleships_Net5
 {
     class Player
     {
-        public static GridManager gridManager = new GridManager();
-        public static Grid[,] territoryGrid = Board.CreateTerritory(gridManager);
-        public static Grid[,] radarGrid = Board.CreateRadar(gridManager);
+        public List<Ship> Ships { get; set; }
+        public List<Ship> PlacedShips { get; set; }
 
-        public static ShipManager shipManager = new ShipManager();
+        public Player()
+        {
+            Ships = GetShipList(Ships);
+        }
+
+        private List<Ship> GetShipList(List<Ship> ships)
+        {
+            ShipManager shipManager = new ShipManager();
+            ships = shipManager.CreateAllShips(ships);
+            return ships;
+        }
+
+        public static CellManager gridManager = new CellManager();
+        public static Cell[,] territoryGrid = Board.CreateTerritory(gridManager);
+        public static Cell[,] radarGrid = Board.CreateRadar(gridManager);
+
+        //public static ShipManager shipManager = new ShipManager();
 
         public static List<Ship> playerShips = new List<Ship>();
         public static List<Ship> playerPlacedShips = new List<Ship>();
@@ -185,7 +200,7 @@ namespace MiniGame_Battleships_Net5
 
             bool validTarget = false;
 
-            foreach (Grid grid in Player.radarGrid)
+            foreach (Cell grid in Player.radarGrid)
             {
                 if (selectedTarget == grid.Position)
                 {

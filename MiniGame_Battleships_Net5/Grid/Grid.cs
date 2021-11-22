@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    class Grid
+    public class Grid
     {
-        public string Position { get; set; }
-        public bool IsOccupied { get; set; }
-        public bool IsHit { get; set; }
+        public Cell[,] Cell { get; set; }
 
-        public Grid(string position, bool isOccupied, bool isHit)
+        public Grid(Cell[,] cell)
         {
-            Position = position;
-            IsOccupied = isOccupied;
-            IsHit = isHit;
+            Cell = cell;
         }
     }
 }
