@@ -9,6 +9,9 @@ namespace MiniGame_Battleships_Net5
 {
     public class Enemy : Competitor
     {
+        public Random random = new Random();
+        public Game game;
+
         public Enemy(List<Ship> ships, List<Ship> placedShips)
         {
             Ships = ships;
@@ -19,6 +22,37 @@ namespace MiniGame_Battleships_Net5
         {
             Console.WriteLine("Enemy ship placement");
             Console.ReadLine();
+
+            for (int i = 0; i < Ships.Count; i++)
+            {
+                Ships[i].Vertical = VerticalOrHorizontalPlacement(Ships[i].Vertical);
+                int positionXnumber;
+                int positionYletter;
+            }
+
+            Console.ReadLine();
+        }
+
+        public override bool VerticalOrHorizontalPlacement(bool vertical)
+        {
+            int vertialOrHorizontal = random.Next(0, 2);
+
+            switch (vertialOrHorizontal)
+            {
+                case 0:
+                    vertical = true;
+                    break;
+
+                case 1:
+                    vertical = false;
+                    break;
+
+                default:
+                    VerticalOrHorizontalPlacement(vertical);
+                    break;
+            }
+
+            return vertical;
         }
 
 
@@ -33,51 +67,10 @@ namespace MiniGame_Battleships_Net5
         /// <returns></returns>
 
         /*
-
-        public static CellManager cellManager = new CellManager();
-        public static Cell[,] enemyGrid2 = Board.CreateEnemyTerritory(cellManager);
-
-        //public static ShipManager shipManager = new ShipManager();
-
-        public static List<Ship> enemyShips = new List<Ship>();
-        public static List<Ship> enemyPlacedShips = new List<Ship>();
-
+         
         static Random random = new Random();
 
         #region Enemy Ship Placement
-        public static void EnemySetup()
-        {
-            enemyShips.Add(Board.CreateHangarShip(shipManager));
-            enemyShips.Add(Board.CreateBattleship(shipManager));
-            enemyShips.Add(Board.CreateDestroyer(shipManager));
-            enemyShips.Add(Board.CreateSubmarine(shipManager));
-            enemyShips.Add(Board.CreatePatrolBoat(shipManager));
-
-            PlayerShipPlacement();
-
-            void PlayerShipPlacement()
-            {
-                
-            }
-
-            void VerticalOrHorizontal()
-            {
-                int tempAngleRandom = random.Next(0, 2);
-
-                if (tempAngleRandom == 0)
-                {
-                    enemyShips[0].Vertical = true;
-                }
-                else if (tempAngleRandom == 1)
-                {
-                    enemyShips[0].Vertical = false;
-                }
-                else
-                {
-                    VerticalOrHorizontal();
-                }
-                PlaceShip();
-            }
 
             void PlaceShip()
             {

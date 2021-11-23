@@ -19,5 +19,6 @@ namespace MiniGame_Battleships_Net5
         }
 
         public abstract void ShipPlacement();
+        public abstract bool VerticalOrHorizontalPlacement(bool vertical);
     }
 }

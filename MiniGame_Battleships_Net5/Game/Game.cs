@@ -8,7 +8,9 @@ namespace MiniGame_Battleships_Net5
 {
     public class Game
     {
-        static GUI gui = new GUI();
+        public GUI gui = new GUI();
+        public BoardManager boardManager = new BoardManager();
+        public Board board;
 
         public void Menu()
         {
@@ -54,9 +56,7 @@ namespace MiniGame_Battleships_Net5
 
         void NewGame()
         {
-            BoardManager boardManager = new BoardManager();
-
-            Board board = boardManager.CreateBoard();
+            board = boardManager.CreateBoard();
             board.Enemy.ShipPlacement();
             board.Player.ShipPlacement();
 

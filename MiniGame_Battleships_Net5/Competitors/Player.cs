@@ -19,6 +19,11 @@ namespace MiniGame_Battleships_Net5
             Console.WriteLine("Player Ship placement");
             Console.ReadLine();
         }
+        public override bool VerticalOrHorizontalPlacement(bool vertical)
+        {
+            return vertical;
+            
+        }
 
 
 
@@ -32,23 +37,9 @@ namespace MiniGame_Battleships_Net5
 
 
         /*
-        public static CellManager gridManager = new CellManager();
-        public static Cell[,] territoryGrid = Board.CreateTerritory(gridManager);
-        public static Cell[,] radarGrid = Board.CreateRadar(gridManager);
-
-        //public static ShipManager shipManager = new ShipManager();
-
-        public static List<Ship> playerShips = new List<Ship>();
-        public static List<Ship> playerPlacedShips = new List<Ship>();
-
         #region Player Ship Placement
         public static void PlayerSetup()
         {
-            playerShips.Add(Board.CreateHangarShip(shipManager));
-            playerShips.Add(Board.CreateBattleship(shipManager));
-            playerShips.Add(Board.CreateDestroyer(shipManager));
-            playerShips.Add(Board.CreateSubmarine(shipManager));
-            playerShips.Add(Board.CreatePatrolBoat(shipManager));
 
             PlayerShipPlacement();
 

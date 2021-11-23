@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniGame_Battleships_Net5
 {
-    class GUI
+    public class GUI
     {
         void Clear()
         {
