@@ -9,26 +9,17 @@ namespace MiniGame_Battleships_Net5
 {
     public class Enemy : Competitor
     {
-        static Random random = new Random();
-
-        public Enemy()
+        public Enemy(List<Ship> ships, List<Ship> placedShips)
         {
-            Ships = GetShipList(Ships);
+            Ships = ships;
+            PlacedShips = placedShips;
         }
 
-        private List<Ship> GetShipList(List<Ship> ships)
+        public override void ShipPlacement()
         {
-            ShipManager shipManager = new ShipManager();
-            ships = shipManager.CreateAllShips(ships);
-            return ships;
+            Console.WriteLine("Enemy ship placement");
+            Console.ReadLine();
         }
-
-        public void ShipAutoPlacement()
-        {
-
-        }
-
-
 
 
 

@@ -57,8 +57,9 @@ namespace MiniGame_Battleships_Net5
             BoardManager boardManager = new BoardManager();
 
             Board board = boardManager.CreateBoard();
-            
-            //Placement
+            board.Enemy.ShipPlacement();
+            board.Player.ShipPlacement();
+
             //Determine who starts
 
             // Loop

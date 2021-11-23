@@ -52,15 +52,15 @@ namespace MiniGame_Battleships_Net5
         }
         #endregion
 
-        public List<Ship> CreateAllShips(List<Ship> ships)
+        public List<Ship> CreateAllShips()
         {
-            ShipManager shipManager = new ShipManager();
+            List<Ship> ships = new List<Ship>();
 
-            Ship hangarShip = shipManager.CreateHangarShip();
-            Ship battleship = shipManager.CreateBattleship();
-            Ship destroyer = shipManager.CreateDestroyer();
-            Ship submarine = shipManager.CreateSubmarine();
-            Ship patrolBoat = shipManager.CreatePatrolBoat();
+            Ship hangarShip = CreateHangarShip();
+            Ship battleship = CreateBattleship();
+            Ship destroyer = CreateDestroyer();
+            Ship submarine = CreateSubmarine();
+            Ship patrolBoat = CreatePatrolBoat();
 
             ships.Add(hangarShip);
             ships.Add(battleship);

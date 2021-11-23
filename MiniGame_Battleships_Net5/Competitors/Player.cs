@@ -8,21 +8,16 @@ namespace MiniGame_Battleships_Net5
 {
     public class Player : Competitor
     {
-        public Player()
+        public Player(List<Ship> ships, List<Ship> placedShips)
         {
-            Ships = GetShipList(Ships);
+            Ships = ships;
+            PlacedShips = placedShips;
         }
 
-        private List<Ship> GetShipList(List<Ship> ships)
+        public override void ShipPlacement()
         {
-            ShipManager shipManager = new ShipManager();
-            ships = shipManager.CreateAllShips(ships);
-            return ships;
-        }
-
-        public void ShipPlacement()
-        {
-
+            Console.WriteLine("Player Ship placement");
+            Console.ReadLine();
         }
 
 

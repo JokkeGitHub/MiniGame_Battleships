@@ -13,10 +13,16 @@ namespace MiniGame_Battleships_Net5
             Console.Clear();
         }
 
+        void ReadLine()
+        {
+            Console.ReadLine();
+        }
+
         public void GoodBye()
         {
             Clear();
             Console.WriteLine("Goodbye!");
+            ReadLine();
         }
 
         public void StartOrNot()
@@ -28,6 +34,7 @@ namespace MiniGame_Battleships_Net5
         public void WrongInput()
         {
             Console.WriteLine("Wrong input detected. Please try again.");
+            ReadLine();
         }
 
 
