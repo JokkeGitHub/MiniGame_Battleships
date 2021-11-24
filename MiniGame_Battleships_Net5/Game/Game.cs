@@ -12,6 +12,7 @@ namespace MiniGame_Battleships_Net5
         public BoardManager boardManager = new BoardManager();
         public Board board;
 
+        #region START UP
         public void Menu()
         {
             do
@@ -53,7 +54,9 @@ namespace MiniGame_Battleships_Net5
             gui.GoodBye();
             Environment.Exit(0);
         }
+        #endregion
 
+        #region GAME SETUP
         void NewGame()
         {
             board = boardManager.CreateBoard();
@@ -73,9 +76,10 @@ namespace MiniGame_Battleships_Net5
         void ShipPlacement()
         {
             EnemySetup();
-            // PlayerSetup();
+            PlayerSetup();
         }
 
+        #region ENEMY PLACEMENT
         void EnemySetup()
         {
             EnemyVerticalOrHorizontal();
@@ -99,12 +103,16 @@ namespace MiniGame_Battleships_Net5
             }
 
             board.Enemy.Ships.Clear();
-            Console.WriteLine("List cleared");
-            Console.ReadLine();
         }
+        #endregion
 
-
-
+        #region PLAYER PLACEMENT
+        void PlayerSetup()
+        {
+            Console.WriteLine("Reached player setup");
+        }
+        #endregion
+        #endregion
 
         /*
         void Run()

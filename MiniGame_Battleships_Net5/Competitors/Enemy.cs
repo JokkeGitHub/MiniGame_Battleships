@@ -18,6 +18,7 @@ namespace MiniGame_Battleships_Net5
             PlacedShips = placedShips;
         }
 
+        #region PLACEMENT
         public override bool VerticalOrHorizontalPlacement(bool vertical)
         {
             int vertialOrHorizontal = random.Next(0, 2);
@@ -140,7 +141,7 @@ namespace MiniGame_Battleships_Net5
 
             return grid;
         }
-
+        #endregion
 
 
 
