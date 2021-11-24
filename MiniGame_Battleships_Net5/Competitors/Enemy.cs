@@ -42,19 +42,101 @@ namespace MiniGame_Battleships_Net5
 
         public override Grid PositionPlacement(Grid grid, Ship ship)
         {
-            bool placedOnGrid = false;
+            bool allPositionsAvailable = false;
+            int positionYletter;
+            int positionXnumber;
 
             do
             {
-                int positionXnumber = random.Next(0, 10);
-                int positionYletter = random.Next(0, 10);
+                positionYletter = random.Next(0, 10);
+                positionXnumber = random.Next(0, 10);
 
-                if (grid.Cell[positionXnumber, positionYletter].IsOccupied == false)
+                if (grid.Cell[positionYletter, positionXnumber].IsOccupied == false)
                 {
-
+                    allPositionsAvailable = CheckPositionAvailability(grid, positionYletter, positionXnumber, ship.Vertical, ship.Size, allPositionsAvailable);
                 }
 
-            } while (placedOnGrid == false);
+            } while (allPositionsAvailable == false);
+
+            grid = PlaceShip(grid, ship, positionYletter, positionXnumber);
+
+            return grid;
+        }
+
+        public bool CheckPositionAvailability(Grid grid, int positionY, int positionX, bool shipVertical, int shipSize, bool allPositionsAvailable)
+        {
+            if (shipVertical == true && positionY + shipSize < 10)
+            {
+                allPositionsAvailable = CheckVerticalPosition(grid, positionY, positionX, shipSize, allPositionsAvailable);
+            }
+            else if (shipVertical == false && positionX + shipSize < 10)
+            {
+                allPositionsAvailable = CheckHorizontalPosition(grid, positionY, positionX, shipSize, allPositionsAvailable);
+            }
+            else
+            {
+                allPositionsAvailable = false;
+            }
+
+            return allPositionsAvailable;
+        }
+
+        public bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
+        {
+            for (int i = 1; i < shipSize; i++)
+            {
+                if (grid.Cell[positionY + i, positionX].IsOccupied == false)
+                {
+                    allPositionsAvailable = true;
+                }
+                else
+                {
+                    allPositionsAvailable = false;
+                    i = 6;
+                }
+            }
+
+            return allPositionsAvailable;
+        }
+
+        public bool CheckHorizontalPosition(Grid grid, int positionX, int positionY, int shipSize, bool allPositionsAvailable)
+        {
+            for (int i = 1; i < shipSize; i++)
+            {
+                if (grid.Cell[positionY, positionX + i].IsOccupied == false)
+                {
+                    allPositionsAvailable = true;
+                }
+                else
+                {
+                    allPositionsAvailable = false;
+                    i = 6;
+                }
+            }
+
+            return allPositionsAvailable;
+        }
+
+        public Grid PlaceShip(Grid grid, Ship ship, int positionY, int positionX)
+        {
+            if (ship.Vertical == true)
+            {
+                for (int i = 0; i < ship.Size; i++)
+                {
+                    grid.Cell[positionY + i, positionX].ShipAtLocation = ship;
+                    grid.Cell[positionY + i, positionX].IsOccupied = true; 
+                    Console.WriteLine($"position {grid.Cell[positionY + i, positionX].Position} occupied by {grid.Cell[positionY + i, positionX].ShipAtLocation.Abbreviation}");
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ship.Size; i++)
+                {
+                    grid.Cell[positionY, positionX + i].ShipAtLocation = ship;
+                    grid.Cell[positionY, positionX + i].IsOccupied = true;
+                    Console.WriteLine($"position {grid.Cell[positionY, positionX + i].Position} occupied by {grid.Cell[positionY, positionX + i].ShipAtLocation.Abbreviation}");
+                }
+            }
 
             return grid;
         }

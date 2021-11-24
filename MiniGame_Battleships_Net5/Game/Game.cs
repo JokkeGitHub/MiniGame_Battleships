@@ -73,9 +73,7 @@ namespace MiniGame_Battleships_Net5
         void ShipPlacement()
         {
             EnemySetup();
-            // Positions
-            Console.WriteLine(board.EnemyGrid.Cell[0, 0].Position);
-            Console.ReadLine();
+            // PlayerSetup();
         }
 
         void EnemySetup()
@@ -97,10 +95,12 @@ namespace MiniGame_Battleships_Net5
             for (int i = 0; i < board.Enemy.Ships.Count; i++)
             {
                 board.EnemyGrid = board.Enemy.PositionPlacement(board.EnemyGrid, board.Enemy.Ships[i]);
+                board.Enemy.PlacedShips.Add(board.Enemy.Ships[i]);
             }
-            int positionXnumber = 0;
-            int positionYletter = 0;
-            board.EnemyGrid.Cell[positionXnumber, positionYletter].Position = board.Enemy.Ships[0].Abbreviation;
+
+            board.Enemy.Ships.Clear();
+            Console.WriteLine("List cleared");
+            Console.ReadLine();
         }
 
 
