@@ -64,7 +64,7 @@ namespace MiniGame_Battleships_Net5
             return grid;
         }
 
-        public bool CheckPositionAvailability(Grid grid, int positionY, int positionX, bool shipVertical, int shipSize, bool allPositionsAvailable)
+        public override bool CheckPositionAvailability(Grid grid, int positionY, int positionX, bool shipVertical, int shipSize, bool allPositionsAvailable)
         {
             if (shipVertical == true && positionY + shipSize < 10)
             {
@@ -82,7 +82,7 @@ namespace MiniGame_Battleships_Net5
             return allPositionsAvailable;
         }
 
-        public bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
+        public override bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
         {
             for (int i = 0; i < shipSize; i++)
             {
@@ -100,7 +100,7 @@ namespace MiniGame_Battleships_Net5
             return allPositionsAvailable;
         }
 
-        public bool CheckHorizontalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
+        public override bool CheckHorizontalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
         {
             for (int i = 0; i < shipSize; i++)
             {
@@ -118,7 +118,7 @@ namespace MiniGame_Battleships_Net5
             return allPositionsAvailable;
         }
 
-        public Grid PlaceShip(Grid grid, Ship ship, int positionY, int positionX)
+        public override Grid PlaceShip(Grid grid, Ship ship, int positionY, int positionX)
         {
             if (ship.Vertical == true)
             {

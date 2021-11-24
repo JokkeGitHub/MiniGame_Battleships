@@ -16,12 +16,35 @@ namespace MiniGame_Battleships_Net5
 
         public override bool VerticalOrHorizontalPlacement(bool vertical)
         {
-            return vertical;
-            
+            return vertical;            
         }
 
         public override Grid PositionPlacement(Grid grid, Ship ship)
         {
+            return grid;
+        }
+
+        public override bool CheckPositionAvailability(Grid grid, int positionY, int positionX, bool shipVertical, int shipSize, bool allPositionsAvailable)
+        {
+
+            return allPositionsAvailable;
+        }
+
+        public override bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
+        {
+
+            return allPositionsAvailable;
+        }
+
+        public override bool CheckHorizontalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
+        {
+
+            return allPositionsAvailable;
+        }
+
+        public override Grid PlaceShip(Grid grid, Ship ship, int positionY, int positionX)
+        {
+
             return grid;
         }
 

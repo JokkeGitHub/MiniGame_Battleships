@@ -21,5 +21,9 @@ namespace MiniGame_Battleships_Net5
 
         public abstract bool VerticalOrHorizontalPlacement(bool vertical);
         public abstract Grid PositionPlacement(Grid grid, Ship ship);
+        public abstract bool CheckPositionAvailability(Grid grid, int positionY, int positionX, bool shipVertical, int shipSize, bool allPositionsAvailable);
+        public abstract bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable);
+        public abstract bool CheckHorizontalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable);
+        public abstract Grid PlaceShip(Grid grid, Ship ship, int positionY, int positionX);
     }
 }
