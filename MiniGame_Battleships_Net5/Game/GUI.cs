@@ -8,48 +8,22 @@ namespace MiniGame_Battleships_Net5
 {
     public class GUI
     {
-        #region STANDARD 
-        #region COLORS
-        void Gray()
+        #region START UP
+        public void StartOrNot()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Clear();
+            Console.WriteLine("Start a new game?\nType yes or no.");
         }
 
-        void White()
+        public void GoodBye()
         {
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-
-        void Blue()
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
-        }
-
-        void Red()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-        }
-
-        void Green()
-        {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Clear();
+            Console.WriteLine("Goodbye!");
+            ReadLine();
         }
         #endregion
 
-        void Occupied(Grid grid, int y, int x)
-        {
-            Gray();
-            Console.Write($"{grid.Cell[y, x].ShipAtLocation.Abbreviation}");
-            White();
-        }
-
-        void Hit()
-        {
-            Red();
-            Console.Write("[><]");
-            White();
-        }
-
+        #region STANDARD 
         void Clear()
         {
             Console.Clear();
@@ -72,36 +46,114 @@ namespace MiniGame_Battleships_Net5
         }
         #endregion
 
-        #region START UP
-        public void StartOrNot()
+        #region COLORS
+        void Gray()
         {
-            Clear();
-            Console.WriteLine("Start a new game?\nType yes or no.");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
         }
 
-        public void GoodBye()
+        void White()
         {
-            Clear();
-            Console.WriteLine("Goodbye!");
-            ReadLine();
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        void Blue()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+        }
+
+        void Red()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+        void Green()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
         }
         #endregion
 
         #region GRIDS
+        
+        #region EDGES
         void ScreenTopPlayer()
         {
+            Green();
             Console.Write("*************** TERRITORY ***************\n");
+            White();
         }
 
         void ScreenTopRadar()
         {
+            Green();
             Console.Write("***************** RADAR *****************\n");
+            White();
         }
 
         void ScreenBottom()
         {
+            Green();
             Console.Write("*****************************************\n");
+            White();
         }
+        #endregion
+
+        #region CELLS
+        void RadarCell(Grid grid, int y, int x)
+        {
+            White();
+            Console.Write("[");
+            Green();
+            Console.Write($"{grid.Cell[y, x].Position}");
+            White();
+            Console.Write("]");
+        }
+
+        void Occupied(Grid grid, int y, int x)
+        {
+            Gray();
+            Console.Write($"{grid.Cell[y, x].ShipAtLocation.Abbreviation}");
+            White();
+        }
+
+        void Hit()
+        {
+            Red();
+            Console.Write("[><]");
+            White();
+        }
+        #endregion
+
+        #region PLAYER PLACEMENT
+        public void DisplayShipTypes()
+        {
+            Console.WriteLine("Hangar Ship| Size = 5\nBattleship | Size = 4\nDestroyer  | Size = 3\nSubmarine  | Size = 3\nPatrol Boat| Size = 2\n");
+            ReadLine();
+        }
+
+        public void DisplayPlacementGrid(Grid grid)
+        {
+            ScreenTopPlayer();
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (grid.Cell[i, j].IsOccupied == true)
+                    {
+                        Occupied(grid, i, j);
+                    }
+                    else
+                    {
+                        Console.Write($" {grid.Cell[i, j].Position} ");
+                    }
+                }
+                NewLine();
+            }
+
+            ScreenBottom();
+        }
+        #endregion
 
         #region PLAYER GRID
         public void DisplayPlayerGrid(Grid grid)
@@ -122,7 +174,33 @@ namespace MiniGame_Battleships_Net5
                     }
                     else
                     {
-                        Console.Write($" {grid.Cell[i, j].Position} ");
+                        Console.Write($"    ");
+                    }
+                }
+                NewLine();
+            }
+
+            ScreenBottom();
+            ReadLine();
+        }
+        #endregion
+
+        #region PLAYER RADER
+        public void DisplayPlayerRadar(Grid grid)
+        {
+            ScreenTopRadar();
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (grid.Cell[i, j].IsHit == true)
+                    {
+                        Hit();
+                    }
+                    else
+                    {
+                        RadarCell(grid, i, j);
                     }
                 }
                 NewLine();
@@ -130,9 +208,6 @@ namespace MiniGame_Battleships_Net5
 
             ScreenBottom();
         }
-        #endregion
-
-        #region PLAYER RADER
 
         #endregion
         #endregion
@@ -150,10 +225,6 @@ namespace MiniGame_Battleships_Net5
 
         /*
         #region Ship Placement GUI
-        public static void DisplayShipTypesMessage()
-        {
-            Console.WriteLine("Hangar Ship| Size = 5\nBattleship | Size = 4\nDestroyer  | Size = 3\nSubmarine  | Size = 3\nPatrol Boat| Size = 2\n");
-        }
 
         public static void DisplayPlacementGrid()
         {

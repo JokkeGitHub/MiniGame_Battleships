@@ -109,16 +109,33 @@ namespace MiniGame_Battleships_Net5
         #region PLAYER PLACEMENT
         void PlayerSetup()
         {
+            PlayerPlacementGrid();
+            gui.DisplayShipTypes();
+        }
+        #endregion
+        #endregion
+
+        void PlayerPlacementGrid()
+        {
+            GridManager gridManager = new GridManager();
+            Grid placementGrid = gridManager.CreateGrid();
+
+            gui.DisplayPlacementGrid(placementGrid);
+        }
+
+        /*
             Console.WriteLine("Test, visible Enemy Grid");
             gui.DisplayPlayerGrid(board.EnemyGrid);
+
+            gui.DisplayPlayerRadar(board.RadarGrid);
 
             Console.WriteLine("Reached player setup");
             Console.ReadLine();
             gui.DisplayPlayerGrid(board.PlayerGrid);
             Console.ReadLine();
-        }
-        #endregion
-        #endregion
+        */
+
+
 
         /*
         void Run()
