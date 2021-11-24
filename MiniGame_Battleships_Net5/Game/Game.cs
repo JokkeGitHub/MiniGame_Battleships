@@ -110,6 +110,9 @@ namespace MiniGame_Battleships_Net5
         void PlayerSetup()
         {
             Console.WriteLine("Reached player setup");
+            Console.ReadLine();
+            gui.DisplayPlayerGrid(board.PlayerGrid);
+            Console.ReadLine();
         }
         #endregion
         #endregion

@@ -19,6 +19,11 @@ namespace MiniGame_Battleships_Net5
             Console.ReadLine();
         }
 
+        void NewLine()
+        {
+            Console.Write("\n");
+        }
+
         public void WrongInput()
         {
             Console.WriteLine("Wrong input detected. Please try again.");
@@ -42,8 +47,37 @@ namespace MiniGame_Battleships_Net5
         #endregion
 
         #region GRIDS
-        #region PLAYER GRID
+        void ScreenTopPlayer()
+        {
+            Console.Write("*************** TERRITORY ***************\n");
+        }
 
+        void ScreenTopRadar()
+        {
+            Console.Write("***************** RADAR *****************\n");
+        }
+
+        void ScreenBottom()
+        {
+            Console.Write("*****************************************\n");
+        }
+
+        #region PLAYER GRID
+        public void DisplayPlayerGrid(Grid grid)
+        {
+            ScreenTopPlayer();
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Console.Write($" {grid.Cell[i, j].Position} ");
+                }
+                NewLine();
+            }
+
+            ScreenBottom();
+        }
         #endregion
 
         #region PLAYER RADER

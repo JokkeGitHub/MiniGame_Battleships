@@ -84,7 +84,7 @@ namespace MiniGame_Battleships_Net5
 
         public bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
         {
-            for (int i = 1; i < shipSize; i++)
+            for (int i = 0; i < shipSize; i++)
             {
                 if (grid.Cell[positionY + i, positionX].IsOccupied == false)
                 {
@@ -100,9 +100,9 @@ namespace MiniGame_Battleships_Net5
             return allPositionsAvailable;
         }
 
-        public bool CheckHorizontalPosition(Grid grid, int positionX, int positionY, int shipSize, bool allPositionsAvailable)
+        public bool CheckHorizontalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
         {
-            for (int i = 1; i < shipSize; i++)
+            for (int i = 0; i < shipSize; i++)
             {
                 if (grid.Cell[positionY, positionX + i].IsOccupied == false)
                 {
