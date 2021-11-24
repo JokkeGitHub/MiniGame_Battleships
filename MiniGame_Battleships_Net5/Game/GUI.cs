@@ -22,7 +22,7 @@ namespace MiniGame_Battleships_Net5
 
         void Blue()
         {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.Blue;
         }
 
         void Red()
@@ -32,7 +32,7 @@ namespace MiniGame_Battleships_Net5
 
         void Green()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
         }
         #endregion
 
