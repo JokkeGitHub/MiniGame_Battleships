@@ -11,6 +11,7 @@ namespace MiniGame_Battleships_Net5
         public string Position { get; set; }
         public bool IsOccupied { get; set; }
         public bool IsHit { get; set; }
+        public Ship ShipAtLocation { get; set; }
 
         public Cell(string position, bool isOccupied, bool isHit)
         {

@@ -57,8 +57,7 @@ namespace MiniGame_Battleships_Net5
         void NewGame()
         {
             board = boardManager.CreateBoard();
-            board.Enemy.ShipPlacement();
-            board.Player.ShipPlacement();
+            ShipPlacement();
 
             //Determine who starts
 
@@ -70,6 +69,42 @@ namespace MiniGame_Battleships_Net5
             // If victory condition
             // Win/Lose Message
         }
+
+        void ShipPlacement()
+        {
+            EnemySetup();
+            // Positions
+            Console.WriteLine(board.EnemyGrid.Cell[0, 0].Position);
+            Console.ReadLine();
+        }
+
+        void EnemySetup()
+        {
+            EnemyVerticalOrHorizontal();
+            EnemyPlacement();
+        }
+
+        void EnemyVerticalOrHorizontal()
+        {
+            for (int i = 0; i < board.Enemy.Ships.Count; i++)
+            {
+                board.Enemy.Ships[i].Vertical = board.Enemy.VerticalOrHorizontalPlacement(board.Enemy.Ships[i].Vertical);
+            }
+        }
+
+        void EnemyPlacement()
+        {
+            for (int i = 0; i < board.Enemy.Ships.Count; i++)
+            {
+                board.EnemyGrid = board.Enemy.PositionPlacement(board.EnemyGrid, board.Enemy.Ships[i]);
+            }
+            int positionXnumber = 0;
+            int positionYletter = 0;
+            board.EnemyGrid.Cell[positionXnumber, positionYletter].Position = board.Enemy.Ships[0].Abbreviation;
+        }
+
+
+
 
         /*
         void Run()

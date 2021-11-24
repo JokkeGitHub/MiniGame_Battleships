@@ -14,17 +14,16 @@ namespace MiniGame_Battleships_Net5
             PlacedShips = placedShips;
         }
 
-        public override void ShipPlacement()
-        {
-            Console.WriteLine("Player Ship placement");
-            Console.ReadLine();
-        }
         public override bool VerticalOrHorizontalPlacement(bool vertical)
         {
             return vertical;
             
         }
 
+        public override Grid PositionPlacement(Grid grid, Ship ship)
+        {
+            return grid;
+        }
 
 
 

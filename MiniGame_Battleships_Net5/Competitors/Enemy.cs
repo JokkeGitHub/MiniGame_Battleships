@@ -18,21 +18,6 @@ namespace MiniGame_Battleships_Net5
             PlacedShips = placedShips;
         }
 
-        public override void ShipPlacement()
-        {
-            Console.WriteLine("Enemy ship placement");
-            Console.ReadLine();
-
-            for (int i = 0; i < Ships.Count; i++)
-            {
-                Ships[i].Vertical = VerticalOrHorizontalPlacement(Ships[i].Vertical);
-                int positionXnumber;
-                int positionYletter;
-            }
-
-            Console.ReadLine();
-        }
-
         public override bool VerticalOrHorizontalPlacement(bool vertical)
         {
             int vertialOrHorizontal = random.Next(0, 2);
@@ -54,6 +39,26 @@ namespace MiniGame_Battleships_Net5
 
             return vertical;
         }
+
+        public override Grid PositionPlacement(Grid grid, Ship ship)
+        {
+            bool placedOnGrid = false;
+
+            do
+            {
+                int positionXnumber = random.Next(0, 10);
+                int positionYletter = random.Next(0, 10);
+
+                if (grid.Cell[positionXnumber, positionYletter].IsOccupied == false)
+                {
+
+                }
+
+            } while (placedOnGrid == false);
+
+            return grid;
+        }
+
 
 
 

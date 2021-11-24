@@ -16,13 +16,16 @@ namespace MiniGame_Battleships_Net5
             Grid playerGrid = gridManager.CreateGrid();
             Grid radarGrid = gridManager.CreateGrid();
 
-            List<Ship> shipsList = new List<Ship>();
+            List<Ship> shipsListEnemy = new List<Ship>();
+            List<Ship> shipsListEnemyPlaced = new List<Ship>();
+            List<Ship> shipsListPlayer = new List<Ship>();
+            List<Ship> shipsListPlayerPlaced = new List<Ship>();
 
-            Enemy enemy = new Enemy(shipsList, shipsList);
-            Player player = new Player(shipsList, shipsList);
+            Enemy enemy = new Enemy(shipsListEnemy, shipsListEnemyPlaced);
+            Player player = new Player(shipsListPlayer, shipsListPlayerPlaced);
 
-            enemy.GetShipList(enemy.Ships);
-            player.GetShipList(player.Ships);
+            enemy.Ships = enemy.GetShipList();
+            player.Ships = player.GetShipList();
 
             Board newBoard = new Board(enemyGrid, playerGrid, radarGrid, enemy, player);
 

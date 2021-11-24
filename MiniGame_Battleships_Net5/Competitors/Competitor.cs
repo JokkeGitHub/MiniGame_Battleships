@@ -11,14 +11,15 @@ namespace MiniGame_Battleships_Net5
         public List<Ship> Ships { get; set; }
         public List<Ship> PlacedShips { get; set; }
 
-        public List<Ship> GetShipList(List<Ship> ships)
+        public List<Ship> GetShipList()
         {
             ShipManager shipManager = new ShipManager();
+            List<Ship> ships = new List<Ship>();
             ships = shipManager.CreateAllShips();
             return ships;
         }
 
-        public abstract void ShipPlacement();
         public abstract bool VerticalOrHorizontalPlacement(bool vertical);
+        public abstract Grid PositionPlacement(Grid grid, Ship ship);
     }
 }
