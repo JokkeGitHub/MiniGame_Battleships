@@ -109,6 +109,9 @@ namespace MiniGame_Battleships_Net5
         #region PLAYER PLACEMENT
         void PlayerSetup()
         {
+            Console.WriteLine("Test, visible Enemy Grid");
+            gui.DisplayPlayerGrid(board.EnemyGrid);
+
             Console.WriteLine("Reached player setup");
             Console.ReadLine();
             gui.DisplayPlayerGrid(board.PlayerGrid);

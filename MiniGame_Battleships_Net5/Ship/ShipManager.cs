@@ -18,35 +18,35 @@ namespace MiniGame_Battleships_Net5
         #region Ship Types
         private Ship CreateHangarShip()
         {
-            Ship hangarShip = CreateShip("Hangar Ship", "HS", 5, 5);
+            Ship hangarShip = CreateShip("Hangar Ship", "[HS]", 5, 5);
 
             return hangarShip;
         }
 
         private Ship CreateBattleship()
         {
-            Ship battleship = CreateShip("Battleship", "BS", 4, 4);
+            Ship battleship = CreateShip("Battleship", "[BS]", 4, 4);
 
             return battleship;
         }
 
         private Ship CreateDestroyer()
         {
-            Ship destroyer = CreateShip("Destroyer", "DS", 3, 3);
+            Ship destroyer = CreateShip("Destroyer", "[DS]", 3, 3);
 
             return destroyer;
         }
 
         private Ship CreateSubmarine()
         {
-            Ship Submarine = CreateShip("Submarine", "SM", 3, 3);
+            Ship Submarine = CreateShip("Submarine", "[SM]", 3, 3);
 
             return Submarine;
         }
 
         private Ship CreatePatrolBoat()
         {
-            Ship patrolBoat = CreateShip("Patrol Boat", "PB", 2, 2);
+            Ship patrolBoat = CreateShip("Patrol Boat", "[PB]", 2, 2);
 
             return patrolBoat;
         }

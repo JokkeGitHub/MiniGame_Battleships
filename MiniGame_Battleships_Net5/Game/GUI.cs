@@ -9,6 +9,47 @@ namespace MiniGame_Battleships_Net5
     public class GUI
     {
         #region STANDARD 
+        #region COLORS
+        void Gray()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+        }
+
+        void White()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        void Blue()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+        }
+
+        void Red()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
+        void Green()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+        #endregion
+
+        void Occupied(Grid grid, int y, int x)
+        {
+            Gray();
+            Console.Write($"{grid.Cell[y, x].ShipAtLocation.Abbreviation}");
+            White();
+        }
+
+        void Hit()
+        {
+            Red();
+            Console.Write("[><]");
+            White();
+        }
+
         void Clear()
         {
             Console.Clear();
@@ -71,7 +112,18 @@ namespace MiniGame_Battleships_Net5
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.Write($" {grid.Cell[i, j].Position} ");
+                    if (grid.Cell[i, j].IsOccupied == true)
+                    {
+                        Occupied(grid, i, j);
+                    }
+                    else if (grid.Cell[i, j].IsHit == true)
+                    {
+                        Hit();
+                    }
+                    else
+                    {
+                        Console.Write($" {grid.Cell[i, j].Position} ");
+                    }
                 }
                 NewLine();
             }
