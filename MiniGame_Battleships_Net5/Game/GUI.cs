@@ -8,6 +8,7 @@ namespace MiniGame_Battleships_Net5
 {
     public class GUI
     {
+        #region STANDARD 
         void Clear()
         {
             Console.Clear();
@@ -18,24 +19,38 @@ namespace MiniGame_Battleships_Net5
             Console.ReadLine();
         }
 
-        public void GoodBye()
+        public void WrongInput()
         {
-            Clear();
-            Console.WriteLine("Goodbye!");
+            Console.WriteLine("Wrong input detected. Please try again.");
             ReadLine();
         }
+        #endregion
 
+        #region START UP
         public void StartOrNot()
         {
             Clear();
             Console.WriteLine("Start a new game?\nType yes or no.");
         }
 
-        public void WrongInput()
+        public void GoodBye()
         {
-            Console.WriteLine("Wrong input detected. Please try again.");
+            Clear();
+            Console.WriteLine("Goodbye!");
             ReadLine();
         }
+        #endregion
+
+        #region GRIDS
+        #region PLAYER GRID
+
+        #endregion
+
+        #region PLAYER RADER
+
+        #endregion
+        #endregion
+
 
 
 
