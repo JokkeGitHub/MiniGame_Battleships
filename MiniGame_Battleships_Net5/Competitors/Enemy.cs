@@ -10,7 +10,6 @@ namespace MiniGame_Battleships_Net5
     public class Enemy : Competitor
     {
         public Random random = new Random();
-        public Game game;
 
         public Enemy(List<Ship> ships, List<Ship> placedShips)
         {

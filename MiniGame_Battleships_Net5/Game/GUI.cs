@@ -125,14 +125,27 @@ namespace MiniGame_Battleships_Net5
         #endregion
 
         #region PLAYER PLACEMENT
+        #region PLACEMENT MESSAGES
         public void DisplayShipTypes()
         {
             Console.WriteLine("Hangar Ship| Size = 5\nBattleship | Size = 4\nDestroyer  | Size = 3\nSubmarine  | Size = 3\nPatrol Boat| Size = 2\n");
-            ReadLine();
         }
+
+        public void VerticalOrHorizontalMessage(Ship ship)
+        {
+            Console.WriteLine($"Would you like the {ship.ShipType} to be [v]vertical or [h]horizontal?");
+        }
+
+        public void ChooseCellMessage(Ship ship)
+        {
+            Console.WriteLine($"Where would you like to place this {ship.ShipType}?");
+            Console.WriteLine("Enter the position where you want the ship placed.");
+        }
+        #endregion
 
         public void DisplayPlacementGrid(Grid grid)
         {
+            Clear();
             ScreenTopPlayer();
 
             for (int i = 0; i < 10; i++)
@@ -181,7 +194,7 @@ namespace MiniGame_Battleships_Net5
             }
 
             ScreenBottom();
-            ReadLine();
+            //ReadLine();
         }
         #endregion
 

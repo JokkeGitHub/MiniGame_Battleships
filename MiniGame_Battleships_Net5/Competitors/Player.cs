@@ -8,6 +8,10 @@ namespace MiniGame_Battleships_Net5
 {
     public class Player : Competitor
     {
+        public GUI gui = new GUI();
+        public Game game = new Game();
+
+
         public Player(List<Ship> ships, List<Ship> placedShips)
         {
             Ships = ships;
@@ -16,11 +20,73 @@ namespace MiniGame_Battleships_Net5
 
         public override bool VerticalOrHorizontalPlacement(bool vertical)
         {
-            return vertical;            
+            string verticalOrHorizontal = "";
+            do
+            {
+                verticalOrHorizontal = Console.ReadLine();
+
+                if (verticalOrHorizontal.ToLower() == "v")
+                {
+                    vertical = true;
+                }
+                else if (verticalOrHorizontal.ToLower() == "h")
+                {
+                    vertical = false;
+                }
+                else
+                {
+                    gui.WrongInput();
+                }
+
+            } while (verticalOrHorizontal == "");
+
+            return vertical;
         }
 
         public override Grid PositionPlacement(Grid grid, Ship ship)
         {
+            int positionYletter = 0;
+            int positionXnumber = 0;
+            bool positionFound = false;
+            bool allPositionsAvailable = false;
+
+            game.PlayerPlacementGrid();
+            gui.ChooseCellMessage(ship);
+            string chosenPosition = Console.ReadLine();
+
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    if (grid.Cell[i, j].Position == chosenPosition.ToUpper())
+                    {
+                        positionYletter = i;
+                        positionXnumber = j;
+                        positionFound = true;
+
+                        i = 11;
+                        j = 11;
+                    }
+                }
+            }
+
+            if (positionFound == true)
+            {
+                //allPositionsAvailable = CheckPositionAvailability(grid, positionYletter, positionXnumber, ship.Vertical, ship.Size, allPositionsAvailable);
+                Console.WriteLine($"Made it this far. {chosenPosition}");
+                Console.ReadLine();
+            }
+
+            if (allPositionsAvailable == true)
+            {
+                grid = PlaceShip(grid, ship, positionYletter, positionXnumber);
+            }
+            else
+            {
+                gui.WrongInput();
+                PositionPlacement(grid, ship);
+            }
+
             return grid;
         }
 
