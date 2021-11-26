@@ -72,9 +72,7 @@ namespace MiniGame_Battleships_Net5
 
             if (positionFound == true)
             {
-                //allPositionsAvailable = CheckPositionAvailability(grid, positionYletter, positionXnumber, ship.Vertical, ship.Size, allPositionsAvailable);
-                Console.WriteLine($"Made it this far. {chosenPosition}");
-                Console.ReadLine();
+                allPositionsAvailable = CheckPositionAvailability(grid, positionYletter, positionXnumber, ship.Vertical, ship.Size, allPositionsAvailable);
             }
 
             if (allPositionsAvailable == true)
@@ -92,24 +90,76 @@ namespace MiniGame_Battleships_Net5
 
         public override bool CheckPositionAvailability(Grid grid, int positionY, int positionX, bool shipVertical, int shipSize, bool allPositionsAvailable)
         {
+            if (shipVertical == true && positionY + shipSize < 10)
+            {
+                allPositionsAvailable = CheckVerticalPosition(grid, positionY, positionX, shipSize, allPositionsAvailable);
+            }
+            else if (shipVertical == false && positionX + shipSize < 10)
+            {
+                allPositionsAvailable = CheckHorizontalPosition(grid, positionY, positionX, shipSize, allPositionsAvailable);
+            }
+            else
+            {
+                allPositionsAvailable = false;
+            }
 
             return allPositionsAvailable;
         }
 
         public override bool CheckVerticalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
         {
+            for (int i = 0; i < shipSize; i++)
+            {
+                if (grid.Cell[positionY + i, positionX].IsOccupied == false)
+                {
+                    allPositionsAvailable = true;
+                }
+                else
+                {
+                    allPositionsAvailable = false;
+                    i = 6;
+                }
+            }
 
             return allPositionsAvailable;
         }
 
         public override bool CheckHorizontalPosition(Grid grid, int positionY, int positionX, int shipSize, bool allPositionsAvailable)
         {
+            for (int i = 0; i < shipSize; i++)
+            {
+                if (grid.Cell[positionY, positionX + i].IsOccupied == false)
+                {
+                    allPositionsAvailable = true;
+                }
+                else
+                {
+                    allPositionsAvailable = false;
+                    i = 6;
+                }
+            }
 
             return allPositionsAvailable;
         }
 
         public override Grid PlaceShip(Grid grid, Ship ship, int positionY, int positionX)
         {
+            if (ship.Vertical == true)
+            {
+                for (int i = 0; i < ship.Size; i++)
+                {
+                    grid.Cell[positionY + i, positionX].ShipAtLocation = ship;
+                    grid.Cell[positionY + i, positionX].IsOccupied = true;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < ship.Size; i++)
+                {
+                    grid.Cell[positionY, positionX + i].ShipAtLocation = ship;
+                    grid.Cell[positionY, positionX + i].IsOccupied = true;
+                }
+            }
 
             return grid;
         }

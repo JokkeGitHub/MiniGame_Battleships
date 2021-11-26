@@ -124,8 +124,7 @@ namespace MiniGame_Battleships_Net5
                 for (int i = 0; i < ship.Size; i++)
                 {
                     grid.Cell[positionY + i, positionX].ShipAtLocation = ship;
-                    grid.Cell[positionY + i, positionX].IsOccupied = true; 
-                    //Console.WriteLine($"position {grid.Cell[positionY + i, positionX].Position} occupied by {grid.Cell[positionY + i, positionX].ShipAtLocation.Abbreviation}");
+                    grid.Cell[positionY + i, positionX].IsOccupied = true;
                 }
             }
             else
@@ -134,7 +133,6 @@ namespace MiniGame_Battleships_Net5
                 {
                     grid.Cell[positionY, positionX + i].ShipAtLocation = ship;
                     grid.Cell[positionY, positionX + i].IsOccupied = true;
-                    //Console.WriteLine($"position {grid.Cell[positionY, positionX + i].Position} occupied by {grid.Cell[positionY, positionX + i].ShipAtLocation.Abbreviation}");
                 }
             }
 

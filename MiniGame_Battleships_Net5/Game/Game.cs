@@ -111,6 +111,7 @@ namespace MiniGame_Battleships_Net5
         {
             PlayerVerticalOrHorizontal();
             board.Player.Ships.Clear();
+            Console.WriteLine("Player setup done");
         }
 
         public void PlayerPlacementGrid()
@@ -141,7 +142,11 @@ namespace MiniGame_Battleships_Net5
             {
                 board.PlayerGrid = board.Player.PositionPlacement(board.PlayerGrid, ship);
                 board.Player.PlacedShips.Add(ship);
+
+                // This never becomes true
             } while (allPositionsAvailable == false);
+            gui.DisplayPlacementGrid(board.PlayerGrid);
+            Console.ReadLine();
         }
         #endregion
         #endregion
