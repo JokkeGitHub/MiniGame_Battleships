@@ -33,11 +33,11 @@ namespace MiniGame_Battleships_Net5
             string answer = Console.ReadLine();
             bool start = false;
 
-            if (answer.ToLower().Contains("yes"))
+            if (answer.ToLower().Contains("yes") || answer.ToLower().Contains("y"))
             {
                 start = true;
             }
-            else if (answer.ToLower().Contains("no"))
+            else if (answer.ToLower().Contains("no") || answer.ToLower().Contains("n"))
             {
                 ExitGame();
             }
@@ -143,8 +143,10 @@ namespace MiniGame_Battleships_Net5
                 board.PlayerGrid = board.Player.PositionPlacement(board.PlayerGrid, ship);
                 board.Player.PlacedShips.Add(ship);
 
+                allPositionsAvailable = true;
                 // This never becomes true
             } while (allPositionsAvailable == false);
+
             gui.DisplayPlacementGrid(board.PlayerGrid);
             Console.ReadLine();
         }
